@@ -128,7 +128,7 @@ export default {
     async selectedOrgan() {
       const selectedFile = FileSystem._objects[this.selectedOrgan];
       // eslint-disable-next-line no-undef
-      const node = await spinal.spinalSystem.loadModelPtr(selectedFile);
+      const node = await spinal.spinalSystem.loadPtr(selectedFile);
       this.pullInterval = node.pullInterval.get();
       this.lastSync = node.lastSync.get();
     },
@@ -212,7 +212,7 @@ export default {
       await this.saveFile();
       const selectedFile = FileSystem._objects[this.selectedOrgan];
       // eslint-disable-next-line no-undef
-      const organCfgModel = await spinal.spinalSystem.loadModelPtr(
+      const organCfgModel = await spinal.spinalSystem.loadPtr(
         selectedFile
       );
       const node = SpinalGraphService.getRealNode(this.contextId);
